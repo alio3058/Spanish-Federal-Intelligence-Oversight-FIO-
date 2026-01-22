@@ -1,0 +1,393 @@
+{
+  "dashboardData": {
+    "stats": {
+      "activeDocuments": 247,
+      "pendingReviews": 18,
+      "criticalAlerts": 3,
+      "archivedItems": 1842
+    },
+    "systemHealth": {
+      "database": {
+        "status": "operational",
+        "uptime": 99.97,
+        "description": "Primary database cluster"
+      },
+      "encryption": {
+        "status": "operational",
+        "uptime": 100.0,
+        "description": "AES-256 encryption layer"
+      },
+      "network": {
+        "status": "degraded",
+        "uptime": 98.45,
+        "description": "External network connectivity"
+      },
+      "authentication": {
+        "status": "operational",
+        "uptime": 99.99,
+        "description": "Multi-factor authentication system"
+      }
+    },
+    "alerts": [
+      {
+        "id": 1,
+        "level": "critical",
+        "message": "Unauthorized access attempt detected - IP: 185.220.101.42",
+        "timestamp": "2026-01-20T14:03:00Z",
+        "status": "active",
+        "source": "Security Monitor",
+        "category": "Security"
+      },
+      {
+        "id": 2,
+        "level": "warning",
+        "message": "Encryption key expires in 7 days - rotation required",
+        "timestamp": "2026-01-20T13:23:00Z",
+        "status": "acknowledged",
+        "source": "Encryption Service",
+        "category": "Maintenance"
+      },
+      {
+        "id": 3,
+        "level": "critical",
+        "message": "Watchlist subject BL-4471 activity in Zone 7",
+        "timestamp": "2026-01-20T12:23:00Z",
+        "status": "active",
+        "source": "Watchlist Monitor",
+        "category": "Intelligence"
+      },
+      {
+        "id": 4,
+        "level": "info",
+        "message": "Scheduled maintenance window: 23:00-01:00 EST",
+        "timestamp": "2026-01-20T10:23:00Z",
+        "status": "acknowledged",
+        "source": "System Administrator",
+        "category": "Maintenance"
+      },
+      {
+        "id": 5,
+        "level": "warning",
+        "message": "Database replication lag: 4.2 seconds",
+        "timestamp": "2026-01-20T08:23:00Z",
+        "status": "resolved",
+        "source": "Database Monitor",
+        "category": "Performance"
+      },
+      {
+        "id": 6,
+        "level": "critical",
+        "message": "Failed authentication attempts exceed threshold - Account: analyst_42",
+        "timestamp": "2026-01-20T07:15:00Z",
+        "status": "resolved",
+        "source": "Authentication Service",
+        "category": "Security"
+      },
+      {
+        "id": 7,
+        "level": "warning",
+        "message": "Storage capacity at 78% - cleanup recommended",
+        "timestamp": "2026-01-20T06:00:00Z",
+        "status": "active",
+        "source": "Storage Monitor",
+        "category": "System"
+      },
+      {
+        "id": 8,
+        "level": "info",
+        "message": "Quarterly compliance audit completed successfully",
+        "timestamp": "2026-01-20T05:30:00Z",
+        "status": "resolved",
+        "source": "Compliance System",
+        "category": "Audit"
+      }
+    ],
+    "recentActivity": [
+      {
+        "id": 1,
+        "type": "document",
+        "action": "created",
+        "item": "SIGINT-2026-0147",
+        "itemType": "Intelligence Report",
+        "user": "Agent Cooper",
+        "userId": "ACO-4472",
+        "timestamp": "2026-01-20T14:08:00Z",
+        "status": "pending",
+        "classification": "TOP SECRET"
+      },
+      {
+        "id": 2,
+        "type": "review",
+        "action": "approved",
+        "item": "Operation Darkstar",
+        "itemType": "Operational Plan",
+        "user": "Director Hayes",
+        "userId": "DHY-0001",
+        "timestamp": "2026-01-20T13:53:00Z",
+        "status": "approved",
+        "classification": "SECRET"
+      },
+      {
+        "id": 3,
+        "type": "access",
+        "action": "viewed",
+        "item": "Classified Briefing 12-A",
+        "itemType": "Briefing Document",
+        "user": "Analyst Martinez",
+        "userId": "AMA-3384",
+        "timestamp": "2026-01-20T13:23:00Z",
+        "status": "logged",
+        "classification": "CONFIDENTIAL"
+      },
+      {
+        "id": 4,
+        "type": "watchlist",
+        "action": "updated",
+        "item": "Subject BL-4471",
+        "itemType": "Person of Interest",
+        "user": "System",
+        "userId": "SYS-0000",
+        "timestamp": "2026-01-20T12:53:00Z",
+        "status": "active",
+        "classification": "SECRET"
+      },
+      {
+        "id": 5,
+        "type": "archive",
+        "action": "archived",
+        "item": "Q4 2025 Reports",
+        "itemType": "Report Bundle",
+        "user": "Agent Thompson",
+        "userId": "ATH-2219",
+        "timestamp": "2026-01-20T12:23:00Z",
+        "status": "archived",
+        "classification": "CONFIDENTIAL"
+      },
+      {
+        "id": 6,
+        "type": "document",
+        "action": "modified",
+        "item": "Asset Network Map - Eastern Europe",
+        "itemType": "Intelligence Map",
+        "user": "Agent Rodriguez",
+        "userId": "ARO-5567",
+        "timestamp": "2026-01-20T11:45:00Z",
+        "status": "pending",
+        "classification": "TOP SECRET"
+      },
+      {
+        "id": 7,
+        "type": "review",
+        "action": "rejected",
+        "item": "Budget Request FY2026-Q2",
+        "itemType": "Financial Document",
+        "user": "Director Chen",
+        "userId": "DCH-0003",
+        "timestamp": "2026-01-20T11:20:00Z",
+        "status": "rejected",
+        "classification": "CONFIDENTIAL"
+      },
+      {
+        "id": 8,
+        "type": "access",
+        "action": "exported",
+        "item": "Intelligence Summary - January 2026",
+        "itemType": "Summary Report",
+        "user": "Analyst Park",
+        "userId": "APA-4401",
+        "timestamp": "2026-01-20T10:55:00Z",
+        "status": "logged",
+        "classification": "SECRET"
+      }
+    ],
+    "consoleMessages": [
+      {
+        "tag": "SYS",
+        "message": "ARCHIVE-X Intelligence Platform initialized",
+        "level": "info",
+        "timestamp": "2026-01-20T14:23:45Z"
+      },
+      {
+        "tag": "AUTH",
+        "message": "User authentication verified - TS/SCI clearance confirmed",
+        "level": "success",
+        "timestamp": "2026-01-20T14:23:43Z"
+      },
+      {
+        "tag": "DB",
+        "message": "Database connection pool: 8/12 connections active",
+        "level": "info",
+        "timestamp": "2026-01-20T14:23:40Z"
+      },
+      {
+        "tag": "SEC",
+        "message": "Security scan completed - No threats detected",
+        "level": "success",
+        "timestamp": "2026-01-20T14:23:35Z"
+      },
+      {
+        "tag": "SYNC",
+        "message": "Data synchronization completed - 247 records updated",
+        "level": "success",
+        "timestamp": "2026-01-20T14:23:30Z"
+      },
+      {
+        "tag": "NET",
+        "message": "Network latency: 12ms - Performance optimal",
+        "level": "info",
+        "timestamp": "2026-01-20T14:23:25Z"
+      },
+      {
+        "tag": "BACKUP",
+        "message": "Incremental backup completed successfully",
+        "level": "success",
+        "timestamp": "2026-01-20T14:23:20Z"
+      },
+      {
+        "tag": "WATCH",
+        "message": "Watchlist monitoring scan in progress",
+        "level": "info",
+        "timestamp": "2026-01-20T14:23:15Z"
+      },
+      {
+        "tag": "ENC",
+        "message": "Encryption key validation passed",
+        "level": "success",
+        "timestamp": "2026-01-20T14:23:10Z"
+      },
+      {
+        "tag": "API",
+        "message": "External API health check - All endpoints responsive",
+        "level": "info",
+        "timestamp": "2026-01-20T14:23:05Z"
+      }
+    ],
+    "consoleMessagePool": [
+      {
+        "tag": "DB",
+        "message": "Database integrity check completed - All systems nominal",
+        "level": "success"
+      },
+      {
+        "tag": "SEC",
+        "message": "Security scan completed - No threats detected",
+        "level": "success"
+      },
+      {
+        "tag": "NET",
+        "message": "Network latency: 12ms - Performance optimal",
+        "level": "info"
+      },
+      {
+        "tag": "AUTH",
+        "message": "Session token refreshed for active user",
+        "level": "info"
+      },
+      {
+        "tag": "SYNC",
+        "message": "Data synchronization completed - 247 records updated",
+        "level": "success"
+      },
+      {
+        "tag": "BACKUP",
+        "message": "Incremental backup completed successfully",
+        "level": "success"
+      },
+      {
+        "tag": "WATCH",
+        "message": "Watchlist monitoring scan in progress",
+        "level": "info"
+      },
+      {
+        "tag": "ENC",
+        "message": "Encryption key validation passed",
+        "level": "success"
+      },
+      {
+        "tag": "API",
+        "message": "External API health check - All endpoints responsive",
+        "level": "info"
+      },
+      {
+        "tag": "SYS",
+        "message": "Memory usage: 64% - Within normal parameters",
+        "level": "info"
+      },
+      {
+        "tag": "DB",
+        "message": "Query optimization cache hit rate: 94.2%",
+        "level": "success"
+      },
+      {
+        "tag": "SEC",
+        "message": "Firewall ruleset updated - 3 new rules applied",
+        "level": "info"
+      },
+      {
+        "tag": "NET",
+        "message": "Bandwidth utilization: 42% - Normal load",
+        "level": "info"
+      },
+      {
+        "tag": "WATCH",
+        "message": "No new watchlist matches in last 5 minutes",
+        "level": "info"
+      },
+      {
+        "tag": "AUDIT",
+        "message": "Compliance check passed - All policies enforced",
+        "level": "success"
+      }
+    ]
+  },
+  "metricTrends": {
+    "activeDocuments": {
+      "current": 247,
+      "weekChange": 12,
+      "trendDirection": "up",
+      "percentChange": 5.1
+    },
+    "pendingReviews": {
+      "current": 18,
+      "urgentCount": 4,
+      "trendDirection": "stable",
+      "percentChange": 0
+    },
+    "criticalAlerts": {
+      "current": 3,
+      "resolvedToday": 2,
+      "trendDirection": "down",
+      "percentChange": -25
+    },
+    "archivedItems": {
+      "current": 1842,
+      "totalStorage": "2.4TB",
+      "trendDirection": "up",
+      "percentChange": 8.3
+    }
+  },
+  "userProfile": {
+    "name": "Analyst",
+    "userId": "OM-USER",
+    "clearance": "TS/SCI",
+    "department": "Intelligence Analysis",
+    "lastLogin": "2026-01-20T08:00:00Z",
+    "sessionExpiry": "2026-01-20T20:00:00Z",
+    "permissions": [
+      "read_documents",
+      "create_documents",
+      "view_watchlists",
+      "access_intelligence",
+      "view_logs"
+    ]
+  },
+  "systemMetadata": {
+    "version": "ARCHIVE-X v2.5.1",
+    "environment": "Production",
+    "dataCenter": "US-EAST-1",
+    "lastMaintenance": "2026-01-18T03:00:00Z",
+    "nextMaintenance": "2026-01-21T23:00:00Z",
+    "totalUsers": 247,
+    "activeUsers": 42
+  }
+}

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIO - Supervisión Federal de Inteligencia</title>
+    <link rel="icon" type="image/x-icon" href="assets/Favcion.ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Pantalla de Carga -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p class="loading-text">FIO</p>
+            <p class="loading-subtext">Supervisión Federal de Inteligencia</p>
+            <p class="loading-subtext-small">Estableciendo Conexión Segura...</p>
+        </div>
+    </div>
+
+    <!-- Modal de Acceso Denegado -->
+    <div id="access-denied-overlay" class="modal-overlay hidden">
+        <div class="modal-content access-denied-modal">
+            <div class="modal-header danger">
+                <h2>⚠ ACCESO DENEGADO</h2>
+            </div>
+            <div class="modal-body">
+                <p>No tiene privilegios suficientes para acceder a este recurso.</p>
+                <p class="secondary-text">Este incidente será registrado y reportado.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="close-denied" class="btn btn-primary">Aceptar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="federal-notice-overlay" class="federal-notice-overlay"></div>
+
+    <div class="container">
+        <!-- Encabezado Mejorado -->
+        <header class="enhanced-header" role="banner">
+            <!-- Sección Izquierda: Logo y Nombre de la Plataforma -->
+            <div class="enhanced-header__left">
+                <div class="enhanced-header__logo">
+                    <img src="assets/fio-logo.svg" alt="Logo FIO" class="enhanced-header__logo-img">
+                </div>
+                <div class="enhanced-header__branding">
+                    <h1 class="enhanced-header__title">Supervisión Federal de Inteligencia</h1>
+                    <p class="enhanced-header__subtitle">Plataforma de Inteligencia FIO</p>
+                </div>
+            </div>
+
+            <!-- Sección Central: Navegación con Menús Desplegables -->
+            <nav class="enhanced-header__nav" role="navigation" aria-label="Navegación principal">
+                <button class="enhanced-header__nav-btn active" data-tab="overview">
+                    <span class="nav-icon">📊</span>
+                    <span>Resumen</span>
+                </button>
+                
+                <div class="enhanced-header__dropdown">
+                    <button class="enhanced-header__nav-btn dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                        <span class="nav-icon">📂</span>
+                        <span>Principal</span>
+                        <span class="enhanced-header__arrow">▼</span>
+                    </button>
+                    <div class="enhanced-header__dropdown-menu" role="menu">
+                        <button class="enhanced-header__dropdown-item" data-tab="documents" role="menuitem">📄 Documentos</button>
+                        <button class="enhanced-header__dropdown-item" data-tab="intelligence" role="menuitem">🔍 Inteligencia</button>
+                        <button class="enhanced-header__dropdown-item" data-tab="watchlists" role="menuitem">👁️ Lista de Vigilancia</button>
+                    </div>
+                </div>
+                
+                <div class="enhanced-header__dropdown">
+                    <button class="enhanced-header__nav-btn dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                        <span class="nav-icon">📊</span>
+                        <span>Datos y Análisis</span>
+                        <span class="enhanced-header__arrow">▼</span>
+                    </button>
+                    <div class="enhanced-header__dropdown-menu" role="menu">
+                        <button class="enhanced-header__dropdown-item" data-tab="research" role="menuitem">🔬 Investigación</button>
+                        <button class="enhanced-header__dropdown-item" data-tab="archive" role="menuitem">🗄️ Archivo</button>
+                    </div>
+                </div>
+                
+                <div class="enhanced-header__dropdown">
+                    <button class="enhanced-header__nav-btn dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                        <span class="nav-icon">⚙️</span>
+                        <span>Sistema</span>
+                        <span class="enhanced-header__arrow">▼</span>
+                    </button>
+                    <div class="enhanced-header__dropdown-menu" role="menu">
+                        <button class="enhanced-header__dropdown-item" data-tab="logs" role="menuitem">📋 Registros</button>
+                        <button class="enhanced-header__dropdown-item" data-tab="restricted" role="menuitem">🔒 Restringido</button>
+                        <button class="enhanced-header__dropdown-item leaked-item" data-tab="leaked-files" role="menuitem">🚨 Archivos Filtrados</button>
+                    </div>
+                </div>
+                
+                <div class="enhanced-header__dropdown">
+                    <button class="enhanced-header__nav-btn dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+                        <span class="nav-icon">📚</span>
+                        <span>Ayuda</span>
+                        <span class="enhanced-header__arrow">▼</span>
+                    </button>
+                    <div class="enhanced-header__dropdown-menu" role="menu">
+                        <a class="enhanced-header__dropdown-item" href="QUICK_START_DOCUMENTS.html" target="_blank" role="menuitem">📄 Inicio Rápido</a>
+                        <a class="enhanced-header__dropdown-item" href="DEMO_INTERACTIVE_DOCUMENTS.html" target="_blank" role="menuitem">🎯 Demo Interactiva</a>
+                        <a class="enhanced-header__dropdown-item" href="classified-document.html" target="_blank" role="menuitem">📋 Documento Ejemplo</a>
+                        <a class="enhanced-header__dropdown-item" href="DESIGN_SYSTEM_SHOWCASE.html" target="_blank" role="menuitem">🎨 Sistema de Diseño</a>
+                        <a class="enhanced-header__dropdown-item" href="INTEGRATION_OVERVIEW.html" target="_blank" role="menuitem">✅ Integración</a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Sección Derecha: Botones de Acción y Perfil de Usuario -->
+            <div class="enhanced-header__right">
+                <!-- Alerta de Filtración Clasificada -->
+                <button class="enhanced-header__alert-btn leaked-files-link" data-tab="leaked-files">
+                    <span class="alert-icon">🚨</span>
+                    <span class="alert-text">ALERTA DE FILTRACIÓN CLASIFICADA</span>
+                    <span class="alert-pulse"></span>
+                </button>
+
+                <!-- Botones de Estado Especiales -->
+                <div class="enhanced-header__actions">
+                    <button class="enhanced-header__action-btn enhanced-header__action-btn--special">
+                        <span class="btn-icon">🔓</span>
+                        <span>ACCESO ESPECIAL DISPONIBLE</span>
+                    </button>
+                    <button class="enhanced-header__action-btn enhanced-header__action-btn--admin">
+                        <span class="btn-icon">🛡️</span>
+                        <span>MODO ADMINISTRADOR</span>
+                    </button>
+                </div>
+
+                <!-- Perfil de Usuario con Insignia -->
+                <div class="enhanced-header__user-menu">
+                    <div class="enhanced-header__user" id="user-menu-trigger">
+                        <div class="enhanced-header__user-badge">RV</div>
+                        <div class="enhanced-header__user-details">
+                            <p class="enhanced-header__user-name">Agente Rafael Vega</p>
+                            <p class="enhanced-header__user-clearance">Nivel de Acreditación: TS/SCI</p>
+                        </div>
+                        <span class="enhanced-header__user-arrow">▼</span>
+                    </div>
+                    <div class="user-dropdown-menu" id="user-dropdown" style="display: none;">
+                        <div class="user-dropdown-header">
+                            <div class="profile-badge-large">RV</div>
+                            <div class="user-dropdown-info">
+                                <p class="user-dropdown-name">Agente Rafael Vega</p>
+                                <p class="user-dropdown-role">Agente Especial</p>
+                                <p class="user-dropdown-clearance">TS/SCI</p>
+                            </div>
+                        </div>
+                        <div class="user-dropdown-divider"></div>
+                        <button class="user-dropdown-item" id="menu-session-info">
+                            <span class="dropdown-item-icon">📊</span>
+                            <span>Info de Sesión</span>
+                        </button>
+                        <div class="user-dropdown-divider"></div>
+                        <button class="user-dropdown-item logout-item" id="menu-logout">
+                            <span class="dropdown-item-icon">🚪</span>
+                            <span>Cerrar Sesión</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-workspace">
+            <div class="workspace-header">
+                <div class="breadcrumb">Inicio / Resumen</div>
+            </div>
+            
+            <!-- PESTAÑA RESUMEN -->
+            <div id="overview-content" class="tab-content active">
+                <!-- Contenido generado dinámicamente por OverviewComponent.js -->
+                <div style="display: flex; justify-content: center; align-items: center; height: 400px; color: var(--color-text-secondary);">
+                    <p>Cargando Panel de Inteligencia...</p>
+                </div>
+            </div>
+            
+            <!-- PESTAÑA LISTA DE VIGILANCIA -->
+            <div id="watchlists-content" class="tab-content">
+                <section class="panel-section">
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h2>Lista de Vigilancia Interna</h2>
+                            <span class="badge">10 Sujetos</span>
+                        </div>
+                        <div class="panel-content">
+                            <div class="table-container">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID del Sujeto</th>
+                                            <th>Nombre / Alias</th>
+                                            <th>Nivel de Riesgo</th>
+                                            <th>Razón de Alerta</th>
+                                            <th>División</th>
+                                            <th>Estado</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="watchlist-entries"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Panel de Perfil del Sujeto -->
+                <div id="subject-profile-panel" class="subject-profile-panel hidden">
+                    <button class="close-btn">✕</button>
+                    <div class="profile-container">
+                        <div class="profile-header">
+                            <div class="profile-photo"></div>
+                            <div class="profile-info">
+                                <h2 id="profile-name"></h2>
+                                <p id="profile-id"></p>
+                                <div class="risk-badge" id="profile-risk"></div>
+                            </div>
+                        </div>
+                        <div class="profile-section">
+                            <h3>Cronología</h3>
+                            <div class="timeline" id="timeline-events"></div>
+                        </div>
+                        <div class="profile-section">
+                            <h3>Estado</h3>
+                            <div id="profile-status-stamp" class="status-stamp"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Eventos de Filtración -->
+                <section class="panel-section">
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h2>Eventos de Exposición y Filtración</h2>
+                            <span class="badge">4 Eventos</span>
+                        </div>
+                        <div class="panel-content">
+                            <div id="leak-events-timeline" class="leak-timeline"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- PESTAÑA DOCUMENTOS -->
+            <div id="documents-content" class="tab-content">
+                <section class="panel-section">
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h2>Base de Datos de Documentos</h2>
+                        </div>
+                        <div class="panel-content">
+                            <div class="file-list" id="file-list"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- PESTAÑA INTELIGENCIA -->
+            <div id="intelligence-content" class="tab-content">
+                <section class="panel-section">
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h2>Informes de Inteligencia</h2>
+                        </div>
+                        <div class="panel-content">
+                            <div class="intelligence-feed" id="intelligence-list"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- PESTAÑA REGISTROS -->
+            <div id="logs-content" class="tab-content">
+                <section class="panel-section">
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h2>Archivo de Registros del Sistema</h2>
+                        </div>
+                        <div class="panel-content">
+                            <div class="log-archive" id="log-archive"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- PESTAÑA RESTRINGIDO -->
+            <div id="restricted-content" class="tab-content">
+                <section class="panel-section">
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h2>Acceso Restringido</h2>
+                        </div>
+                        <div class="panel-content">
+                            <p class="text-muted">Esta sección requiere autorización de seguridad mejorada.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- PESTAÑA INVESTIGACIÓN -->
+            <div id="research-content" class="tab-content">
+                <!-- Contenido generado por ResearchComponent -->
+            </div>
+
+            <!-- PESTAÑA ARCHIVO -->
+            <div id="archive-content" class="tab-content">
+                <!-- Contenido generado por ArchiveComponent -->
+            </div>
+
+            <!-- 
+                ================================================================================
+                ARCHIVOS CLASIFICADOS FILTRADOS - AGENTE GIRASOL ROJO
+                ================================================================================
+                ADVERTENCIA: Esta información es parte de una investigación activa.
+                El Agente Rafael Vega ha sido asignado para rastrear la filtración.
+                
+                GIRASOL-ROJO-GR-001: EXPEDIENTE AURORA - La Colmena (dark web)
+                GIRASOL-ROJO-GR-002: PROTOCOLO SOMBRA - Telegram "Voces Libres"
+                GIRASOL-ROJO-GR-003: RED ESCARLATA - Servidor FTP comprometido
+                GIRASOL-ROJO-GR-004: OPERACIÓN FANTASMA - GitHub (commits fragmentados)
+                GIRASOL-ROJO-GR-005: ARCHIVO OMEGA - SecureDrop modificado
+                
+                Fecha de detección: 2026-01-05
+                Estado: INVESTIGACIÓN ACTIVA
+                Clasificación: ULTRA SECRETO
+                ================================================================================
+            -->
+
+            <!-- PESTAÑA ARCHIVOS FILTRADOS -->
+            <div id="leaked-files-content" class="tab-content"
+                 data-expediente="GIRASOL-ROJO"
+                 data-agente-asignado="Rafael Vega"
+                 data-fecha-deteccion="2026-01-05"
+                 data-clasificacion="ULTRA-SECRETO"
+                 data-archivos-filtrados='["GR-001","GR-002","GR-003","GR-004","GR-005"]'>
+                <section class="panel-section">
+                    <div class="panel">
+                        <div class="panel-header leaked-header">
+                            <h2>🚨 Archivos Filtrados - Investigación Activa</h2>
+                            <span class="badge badge-critical">ALERTA</span>
+                        </div>
+                        <div class="panel-content">
+                            <!-- Contenido generado por LeakedFilesComponent -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Datos ocultos de archivos filtrados para descubrimiento -->
+            <script type="application/json" id="girasol-rojo-leaked-data" style="display:none;">
+            {
+                "operacion": "RASTREO GIRASOL ROJO",
+                "agente_informado": "Rafael Vega",
+                "division": "Contrainteligencia",
+                "fecha_inicio": "2026-01-05",
+                "archivos": [
+                    {
+                        "id": "GR-001",
+                        "nombre_clave": "EXPEDIENTE AURORA",
+                        "ubicacion_filtracion": "Foro cifrado La Colmena (dark web)",
+                        "impacto": "CRITICO"
+                    },
+                    {
+                        "id": "GR-002", 
+                        "nombre_clave": "PROTOCOLO SOMBRA",
+                        "ubicacion_filtracion": "Canal Telegram Voces Libres",
+                        "impacto": "ALTO"
+                    },
+                    {
+                        "id": "GR-003",
+                        "nombre_clave": "RED ESCARLATA",
+                        "ubicacion_filtracion": "Servidor FTP gubernamental comprometido",
+                        "impacto": "CRITICO"
+                    },
+                    {
+                        "id": "GR-004",
+                        "nombre_clave": "OPERACION FANTASMA",
+                        "ubicacion_filtracion": "Repositorios GitHub fragmentados",
+                        "impacto": "MEDIO"
+                    },
+                    {
+                        "id": "GR-005",
+                        "nombre_clave": "ARCHIVO OMEGA",
+                        "ubicacion_filtracion": "SecureDrop modificado",
+                        "impacto": "CRITICO"
+                    }
+                ],
+                "nota": "Agente Girasol Rojo permanece sin identificar. Busqueda activa en curso."
+            }
+            </script>
+        </main>
+        
+        <!-- Pie de Página Completo -->
+        <footer class="site-footer" role="contentinfo">
+            <!-- Sección Superior: Enlaces Rápidos en Columnas -->
+            <div class="site-footer__links">
+                <div class="site-footer__grid">
+                    <!-- Columna: Acceso Rápido -->
+                    <div class="site-footer__column">
+                        <h4 class="site-footer__heading">
+                            <span class="site-footer__heading-icon">📂</span>
+                            Acceso Rápido
+                        </h4>
+                        <ul class="site-footer__list">
+                            <li><a href="QUICK_START_DOCUMENTS.html" target="_blank">📄 Inicio Rápido Documentos</a></li>
+                            <li><a href="DEMO_INTERACTIVE_DOCUMENTS.html" target="_blank">🎯 Demo Interactiva</a></li>
+                            <li><a href="classified-document.html" target="_blank">📋 Documento de Ejemplo</a></li>
+                            <li><a href="DESIGN_SYSTEM_SHOWCASE.html" target="_blank">🎨 Sistema de Diseño</a></li>
+                            <li><a href="INTEGRATION_OVERVIEW.html" target="_blank">✅ Integración Completa</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Columna: Documentación -->
+                    <div class="site-footer__column">
+                        <h4 class="site-footer__heading">
+                            <span class="site-footer__heading-icon">📖</span>
+                            Documentación
+                        </h4>
+                        <ul class="site-footer__list">
+                            <li><a href="WORKFLOW_GUIDE.html" target="_blank">📊 Guía de Flujo de Trabajo</a></li>
+                            <li><a href="REDACTION_GUIDE.html" target="_blank">⬛ Guía de Redacción</a></li>
+                            <li><a href="INTEGRATION_DOCS.html" target="_blank">🔧 Documentación de Integración</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Columna: Alerta de Seguridad -->
+                    <div class="site-footer__column">
+                        <h4 class="site-footer__heading site-footer__heading--alert">
+                            <span class="site-footer__heading-icon">🚨</span>
+                            Alerta de Seguridad
+                        </h4>
+                        <ul class="site-footer__list">
+                            <li><a href="#" class="site-footer__alert-link leaked-files-link" data-tab="leaked-files">🔓 Archivos Filtrados - Girasol Rojo</a></li>
+                            <li class="site-footer__alert-text"><em>Investigación activa en curso</em></li>
+                        </ul>
+                    </div>
+
+                    <!-- Columna: Información del Sistema -->
+                    <div class="site-footer__column">
+                        <h4 class="site-footer__heading site-footer__heading--info">
+                            <span class="site-footer__heading-icon">ℹ️</span>
+                            Información del Sistema
+                        </h4>
+                        <div class="site-footer__system-info">
+                            <p>Plataforma de Inteligencia ARCHIVE-X</p>
+                            <p>Proyecto Educativo - Contenido Ficticio</p>
+                            <p>© 2026 - Solo para Uso Escolar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección Central: Canal Seguro y Versión -->
+            <div class="site-footer__secure">
+                <div class="site-footer__secure-content">
+                    <a href="#" id="vega-access-trigger" class="site-footer__secure-link" title="Acceso Restringido">
+                        <span class="site-footer__lock-icon">🔒</span>
+                        <span class="site-footer__secure-text">Canal Seguro RV-7</span>
+                    </a>
+                    <span class="site-footer__pipe">|</span>
+                    <span class="site-footer__version">Sistema FIO v2.6.1 // Conexión Cifrada</span>
+                </div>
+            </div>
+
+            <!-- Sección Inferior: Disclaimer -->
+            <div class="site-footer__disclaimer">
+                <p>Esta interfaz del sistema es parte de una simulación educativa. El acceso no autorizado está prohibido.</p>
+            </div>
+
+            <!-- 
+                ════════════════════════════════════════════════════════════
+                GIRASOL-ROJO: Referencia oculta para investigadores
+                Acceso exclusivo: Agente Rafael Vega
+                Código de acceso: ?agente=vega o ?access=rv-alpha
+                ════════════════════════════════════════════════════════════
+            -->
+        </footer>
+    </div>
+
+    <!-- Load Authentication System -->
+    <script src="js/auth.js"></script>
+    
+    <!-- Load Unredacted Content Generator -->
+    <script src="js/unredacted-content.js"></script>
+    
+    <!-- Load Components -->
+    <script src="js/components/BaseComponent.js"></script>
+    <script src="js/components/OverviewComponent.js"></script>
+    <script src="js/components/DocumentsComponent.js"></script>
+    <script src="js/components/RestrictedComponent.js"></script>
+    <script src="js/components/IntelligenceComponent.js"></script>
+    <script src="js/components/LogsComponent.js"></script>
+    <script src="js/components/ResearchComponent.js"></script>
+    <script src="js/components/ArchiveComponent.js"></script>
+    <script src="js/components/WatchlistsComponent.js"></script>
+    <script src="js/components/LeakedFilesComponent.js"></script>
+    
+    <!-- Sistema de Pop-up Exclusivo para Agente Rafael Vega -->
+    <script src="js/vega-classified-popup.js"></script>
+    
+    <!-- Load Navigation Manager -->
+    <script src="js/navigation.js"></script>
+    
+    <!-- Load Main Script -->
+    <script src="script_v2.js?v=2.0.0"></script>
+    
+    <!-- Initialize Navigation and Authentication -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize authentication first
+            authManager.init();
+            
+            // Initialize navigation after loading screen and user login
+            window.addEventListener('user-login', () => {
+                setTimeout(() => {
+                    navManager.init();
+                }, 500);
+            });
+            
+            // All links to leaked files section (header alert + footer)
+            const leakedFilesLinks = document.querySelectorAll('.leaked-files-link');
+            leakedFilesLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (window.navManager && window.navManager.initialized) {
+                        navManager.switchTab('leaked-files');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

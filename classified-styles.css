@@ -1,0 +1,436 @@
+/* ========================================
+   CLASSIFIED DOCUMENT STYLING
+   Government Report Aesthetic
+   ======================================== */
+
+/* Color Variables */
+:root {
+    --classification-red: #c41e3a;
+    --warning-yellow: #ffc107;
+    --redacted-black: #000000;
+    --document-bg: #f5f5f0;
+    --paper-white: #ffffff;
+    --text-dark: #1a1a1a;
+    --border-gray: #cccccc;
+    --header-bg: #2c3e50;
+    --seal-blue: #003366;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', 'Courier', monospace;
+    background-color: var(--document-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+    padding: 0;
+}
+
+/* Classification Banners */
+.classification-banner {
+    background-color: var(--classification-red);
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 3px;
+    font-family: 'Arial Black', 'Arial Bold', sans-serif;
+    position: sticky;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.top-banner {
+    top: 0;
+}
+
+.bottom-banner {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Document Container */
+.document-container {
+    max-width: 900px;
+    margin: 20px auto 80px;
+    background-color: var(--paper-white);
+    padding: 40px 60px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-gray);
+}
+
+/* Document Header */
+.document-header {
+    border-bottom: 3px solid var(--header-bg);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.header-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.header-item {
+    font-size: 13px;
+}
+
+.header-item .label {
+    font-weight: bold;
+    color: var(--seal-blue);
+    display: inline-block;
+    min-width: 140px;
+}
+
+.header-item .value {
+    color: var(--text-dark);
+    font-weight: normal;
+}
+
+.classification-level {
+    color: var(--classification-red);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Warning Banner */
+.warning-banner {
+    background-color: #fff3cd;
+    border: 2px solid var(--warning-yellow);
+    padding: 15px;
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.warning-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.warning-text {
+    font-size: 11px;
+    line-height: 1.5;
+    color: #856404;
+}
+
+.warning-text strong {
+    color: #d32f2f;
+}
+
+/* Document Title */
+.document-title {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 30px 0;
+    color: var(--text-dark);
+    letter-spacing: 1px;
+    border-top: 2px solid var(--text-dark);
+    border-bottom: 2px solid var(--text-dark);
+    padding: 15px 0;
+}
+
+/* Sections */
+.document-section {
+    margin-bottom: 35px;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--seal-blue);
+    border-bottom: 2px solid var(--seal-blue);
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.section-content {
+    font-size: 13px;
+    text-align: justify;
+}
+
+.section-content p {
+    margin-bottom: 12px;
+}
+
+/* Subsections */
+.subsection {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+.subsection-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+
+/* Lists */
+.timeline-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.timeline-list li {
+    margin-bottom: 10px;
+    padding-left: 25px;
+    position: relative;
+}
+
+.timeline-list li::before {
+    content: "▶";
+    position: absolute;
+    left: 0;
+    color: var(--seal-blue);
+    font-size: 10px;
+}
+
+.recommendations-list {
+    padding-left: 30px;
+}
+
+.recommendations-list li {
+    margin-bottom: 12px;
+}
+
+/* ========================================
+   REDACTION STYLES
+   ======================================== */
+
+/* Basic Redaction - Inline */
+.redacted {
+    background-color: var(--redacted-black);
+    color: var(--redacted-black);
+    padding: 2px 4px;
+    border-radius: 2px;
+    cursor: default;
+    user-select: none;
+}
+
+/* Block Redaction - For phrases */
+.redacted-block {
+    background-color: var(--redacted-black);
+    color: var(--redacted-black);
+    padding: 2px 8px;
+    display: inline-block;
+    border-radius: 2px;
+    min-width: 120px;
+    cursor: default;
+    user-select: none;
+}
+
+/* Long Redaction - For sentences */
+.redacted-long {
+    background-color: var(--redacted-black);
+    color: var(--redacted-black);
+    padding: 2px 8px;
+    display: inline-block;
+    border-radius: 2px;
+    min-width: 200px;
+    cursor: default;
+    user-select: none;
+}
+
+/* Fully Redacted Paragraph */
+.redacted-paragraph {
+    background-color: #f0f0f0;
+    border-left: 4px solid var(--redacted-black);
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.fully-redacted {
+    background-color: var(--redacted-black);
+    color: var(--redacted-black);
+    padding: 10px;
+    border-radius: 3px;
+    line-height: 1.8;
+    cursor: default;
+    user-select: none;
+}
+
+/* Incident Box */
+.incident-box {
+    border: 2px solid #d32f2f;
+    padding: 20px;
+    background-color: #ffebee;
+    margin: 20px 0;
+}
+
+.incident-header {
+    font-weight: bold;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d32f2f;
+    display: flex;
+    justify-content: space-between;
+}
+
+.incident-label {
+    color: var(--seal-blue);
+    margin-right: 10px;
+}
+
+.severity-high {
+    color: #ffffff;
+    background-color: #d32f2f;
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+/* Intelligence Table */
+.intel-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 12px;
+}
+
+.intel-table thead {
+    background-color: var(--header-bg);
+    color: white;
+}
+
+.intel-table th {
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+    border: 1px solid var(--border-gray);
+}
+
+.intel-table td {
+    padding: 10px 12px;
+    border: 1px solid var(--border-gray);
+}
+
+.intel-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.intel-table tbody tr:hover {
+    background-color: #f0f0f0;
+}
+
+/* Threat Levels */
+.threat-critical {
+    color: #ffffff;
+    background-color: #d32f2f;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+.threat-high {
+    color: #ffffff;
+    background-color: #f57c00;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+.threat-medium {
+    color: #000000;
+    background-color: var(--warning-yellow);
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+/* Document Footer */
+.document-footer {
+    border-top: 3px solid var(--header-bg);
+    padding-top: 20px;
+    margin-top: 40px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.footer-item {
+    font-size: 11px;
+}
+
+.footer-item .label {
+    display: block;
+    font-weight: bold;
+    color: var(--seal-blue);
+    margin-bottom: 5px;
+}
+
+.declassification-note {
+    text-align: center;
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--text-dark);
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px dashed var(--border-gray);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .document-container {
+        padding: 30px 20px;
+        margin: 10px;
+    }
+
+    .header-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .classification-banner {
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+
+    .document-title {
+        font-size: 16px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background-color: white;
+    }
+
+    .classification-banner {
+        position: relative;
+    }
+
+    .bottom-banner {
+        position: relative;
+    }
+
+    .document-container {
+        box-shadow: none;
+        margin: 0;
+    }
+}

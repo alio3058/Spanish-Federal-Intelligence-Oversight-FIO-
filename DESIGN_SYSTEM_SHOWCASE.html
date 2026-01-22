@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Diseño UI - Muestra de Componentes</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .showcase-container {
+            padding: var(--space-8);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .showcase-section {
+            margin-bottom: var(--space-12);
+        }
+
+        .showcase-section h2 {
+            font-size: var(--text-2xl);
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-6);
+            padding-bottom: var(--space-3);
+            border-bottom: 2px solid var(--color-border);
+        }
+
+        .showcase-section h3 {
+            font-size: var(--text-lg);
+            color: var(--color-text-secondary);
+            margin: var(--space-6) 0 var(--space-4);
+        }
+
+        .component-row {
+            display: flex;
+            gap: var(--space-4);
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: var(--space-4);
+        }
+
+        .color-swatch {
+            width: 120px;
+            height: 80px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: flex-end;
+            padding: var(--space-3);
+            font-size: var(--text-xs);
+            font-family: 'IBM Plex Mono', monospace;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .shadow-demo {
+            background: var(--color-bg-secondary);
+            width: 120px;
+            height: 80px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-secondary);
+            font-size: var(--text-xs);
+        }
+
+        .typography-sample {
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-2);
+        }
+
+        .card-demo {
+            background: var(--color-bg-secondary);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            max-width: 400px;
+            transition: all var(--transition-normal);
+        }
+
+        .card-demo:hover {
+            border-color: var(--color-border-emphasis);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .spacing-demo {
+            display: flex;
+            gap: var(--space-4);
+            margin-bottom: var(--space-4);
+        }
+
+        .spacing-box {
+            background: var(--color-accent-blue);
+            border-radius: var(--radius-sm);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-xs);
+            font-weight: 600;
+        }
+
+        .grid-demo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--space-4);
+        }
+
+        .grid-item {
+            background: var(--color-bg-tertiary);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: var(--space-4);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="showcase-container">
+        <h1 style="font-size: var(--text-3xl); color: var(--color-text-primary); margin-bottom: var(--space-8);">
+            Sistema de Diseño Profesional ARCHIVE-X
+        </h1>
+
+        <!-- Colores -->
+        <section class="showcase-section">
+            <h2>Paleta de Colores</h2>
+            
+            <h3>Fondos</h3>
+            <div class="component-row">
+                <div class="color-swatch" style="background: #0f1419;">#0f1419</div>
+                <div class="color-swatch" style="background: #1a1f2e;">#1a1f2e</div>
+                <div class="color-swatch" style="background: #252d3d;">#252d3d</div>
+                <div class="color-swatch" style="background: #2f3847;">#2f3847</div>
+            </div>
+
+            <h3>Colores de Acento</h3>
+            <div class="component-row">
+                <div class="color-swatch" style="background: #3b82f6;">#3b82f6</div>
+                <div class="color-swatch" style="background: #60a5fa;">#60a5fa</div>
+                <div class="color-swatch" style="background: #2563eb;">#2563eb</div>
+            </div>
+
+            <h3>Colores Semánticos</h3>
+            <div class="component-row">
+                <div class="color-swatch" style="background: #10b981;">#10b981</div>
+                <div class="color-swatch" style="background: #f59e0b;">#f59e0b</div>
+                <div class="color-swatch" style="background: #ef4444;">#ef4444</div>
+            </div>
+        </section>
+
+        <!-- Tipografía -->
+        <section class="showcase-section">
+            <h2>Tipografía</h2>
+            
+            <div class="typography-sample" style="font-size: var(--text-3xl); font-weight: 700;">
+                Encabezado 3XL - Inter Negrita
+            </div>
+            <div class="typography-sample" style="font-size: var(--text-2xl); font-weight: 600;">
+                Encabezado 2XL - Inter Seminegrita
+            </div>
+            <div class="typography-sample" style="font-size: var(--text-xl); font-weight: 600;">
+                Encabezado XL - Inter Seminegrita
+            </div>
+            <div class="typography-sample" style="font-size: var(--text-lg); font-weight: 500;">
+                Texto Grande - Inter Media
+            </div>
+            <div class="typography-sample" style="font-size: var(--text-base);">
+                Texto Base - Inter Regular
+            </div>
+            <div class="typography-sample" style="font-size: var(--text-sm); color: var(--color-text-secondary);">
+                Texto Pequeño - Inter Regular (Secundario)
+            </div>
+            <div class="typography-sample" style="font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--color-text-tertiary);">
+                Texto XS - IBM Plex Mono (Terciario)
+            </div>
+        </section>
+
+        <!-- Botones -->
+        <section class="showcase-section">
+            <h2>Botones</h2>
+            
+            <div class="component-row">
+                <button class="btn btn-primary">Botón Primario</button>
+                <button class="btn btn-secondary">Botón Secundario</button>
+                <button class="btn btn-small">Botón Pequeño</button>
+            </div>
+        </section>
+
+        <!-- Espaciado -->
+        <section class="showcase-section">
+            <h2>Sistema de Espaciado (Cuadrícula de 4px)</h2>
+            
+            <div class="spacing-demo">
+                <div class="spacing-box" style="width: 4px; height: 40px;">1</div>
+                <div class="spacing-box" style="width: 8px; height: 40px;">2</div>
+                <div class="spacing-box" style="width: 12px; height: 40px;">3</div>
+                <div class="spacing-box" style="width: 16px; height: 40px;">4</div>
+                <div class="spacing-box" style="width: 20px; height: 40px;">5</div>
+                <div class="spacing-box" style="width: 24px; height: 40px;">6</div>
+                <div class="spacing-box" style="width: 32px; height: 40px;">8</div>
+                <div class="spacing-box" style="width: 40px; height: 40px;">10</div>
+                <div class="spacing-box" style="width: 48px; height: 40px;">12</div>
+            </div>
+        </section>
+
+        <!-- Sombras -->
+        <section class="showcase-section">
+            <h2>Sistema de Sombras</h2>
+            
+            <div class="component-row">
+                <div class="shadow-demo" style="box-shadow: var(--shadow-xs);">XS</div>
+                <div class="shadow-demo" style="box-shadow: var(--shadow-sm);">SM</div>
+                <div class="shadow-demo" style="box-shadow: var(--shadow-md);">MD</div>
+                <div class="shadow-demo" style="box-shadow: var(--shadow-lg);">LG</div>
+                <div class="shadow-demo" style="box-shadow: var(--shadow-xl);">XL</div>
+            </div>
+        </section>
+
+        <!-- Tarjetas -->
+        <section class="showcase-section">
+            <h2>Componente de Tarjeta</h2>
+            
+            <div class="card-demo">
+                <div class="card-header">
+                    <h3 style="margin: 0; color: var(--color-text-primary); font-size: var(--text-lg);">
+                        Título de Tarjeta de Ejemplo
+                    </h3>
+                    <span class="classification-badge tier-2">NIVEL-2</span>
+                </div>
+                <div class="card-body">
+                    <p class="card-summary">
+                        Esta es una tarjeta de ejemplo demostrando el nuevo estilo profesional. 
+                        Observe el espaciado consistente, sombras sutiles y efectos suaves al pasar el cursor.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <div class="card-meta">
+                        <span class="meta-icon">📅</span>
+                        <span class="meta-text">2026-01-20</span>
+                    </div>
+                    <span class="card-action">Ver Detalles →</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Indicadores de Estado -->
+        <section class="showcase-section">
+            <h2>Indicadores de Estado</h2>
+            
+            <div class="component-row" style="align-items: center;">
+                <div style="display: flex; align-items: center; gap: var(--space-2);">
+                    <span class="status-dot green"></span>
+                    <span style="color: var(--color-text-secondary);">Operacional</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-2);">
+                    <span class="status-dot yellow"></span>
+                    <span style="color: var(--color-text-secondary);">Advertencia</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: var(--space-2);">
+                    <span class="status-dot red"></span>
+                    <span style="color: var(--color-text-secondary);">Crítico</span>
+                </div>
+            </div>
+            
+            <div class="component-row" style="margin-top: var(--space-4);">
+                <span class="classification-badge tier-1">ALTO SECRETO</span>
+                <span class="classification-badge tier-2">SECRETO</span>
+                <span class="classification-badge tier-3">CONFIDENCIAL</span>
+            </div>
+        </section>
+
+        <!-- Diseño de Cuadrícula -->
+        <section class="showcase-section">
+            <h2>Ejemplo de Diseño de Cuadrícula</h2>
+            
+            <div class="grid-demo">
+                <div class="grid-item">
+                    <div style="font-size: var(--text-2xl); color: var(--color-accent-blue); font-weight: 700; margin-bottom: var(--space-2);">
+                        1,234
+                    </div>
+                    <div style="font-size: var(--text-sm); color: var(--color-text-secondary);">
+                        Total Documentos
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div style="font-size: var(--text-2xl); color: var(--color-success); font-weight: 700; margin-bottom: var(--space-2);">
+                        567
+                    </div>
+                    <div style="font-size: var(--text-sm); color: var(--color-text-secondary);">
+                        Analizados
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div style="font-size: var(--text-2xl); color: var(--color-warning); font-weight: 700; margin-bottom: var(--space-2);">
+                        89
+                    </div>
+                    <div style="font-size: var(--text-sm); color: var(--color-text-secondary);">
+                        Pendientes
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div style="font-size: var(--text-2xl); color: var(--color-danger); font-weight: 700; margin-bottom: var(--space-2);">
+                        12
+                    </div>
+                    <div style="font-size: var(--text-sm); color: var(--color-text-secondary);">
+                        Marcados
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Elementos de Formulario -->
+        <section class="showcase-section">
+            <h2>Elementos de Formulario</h2>
+            
+            <div style="max-width: 400px;">
+                <div style="margin-bottom: var(--space-4);">
+                    <label style="display: block; margin-bottom: var(--space-2); color: var(--color-text-secondary); font-size: var(--text-sm);">
+                        Consulta de Búsqueda
+                    </label>
+                    <div class="search-container">
+                        <input type="text" placeholder="Ingresa términos de búsqueda...">
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: var(--space-4);">
+                    <label style="display: block; margin-bottom: var(--space-2); color: var(--color-text-secondary); font-size: var(--text-sm);">
+                        Nivel de Clasificación
+                    </label>
+                    <select style="width: 100%; padding: var(--space-2) var(--space-4); background: var(--color-bg-tertiary); border: 1px solid var(--color-border); border-radius: var(--radius-md); color: var(--color-text-primary); font-family: inherit;">
+                        <option>Seleccionar nivel...</option>
+                        <option>ALTO SECRETO</option>
+                        <option>SECRETO</option>
+                        <option>CONFIDENCIAL</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pie de Página -->
+        <div style="margin-top: var(--space-12); padding-top: var(--space-6); border-top: 1px solid var(--color-border); text-align: center; color: var(--color-text-tertiary); font-size: var(--text-sm);">
+            <p>Sistema de Diseño ARCHIVE-X v2.0 | UI Profesional</p>
+            <p style="margin-top: var(--space-2);">Última Actualización: 20 de Enero de 2026</p>
+        </div>
+    </div>
+
+    <!-- Pie de Página Mejorado con Enlaces Rápidos -->
+    <footer class="dashboard-footer" style="margin-top: 60px; padding: 40px 20px; background: #1a1f2e; border-top: 1px solid rgba(74, 144, 226, 0.3);">
+        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+            <div>
+                <h4 style="color: #4a90e2; margin-bottom: 15px;">📚 Acceso Rápido</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 8px;"><a href="index.html" style="color: #a0aac0; text-decoration: none;">🏠 Panel Principal</a></li>
+                    <li style="margin-bottom: 8px;"><a href="QUICK_START_DOCUMENTS.html" target="_blank" style="color: #a0aac0; text-decoration: none;">📄 Inicio Rápido Documentos</a></li>
+                    <li style="margin-bottom: 8px;"><a href="DEMO_INTERACTIVE_DOCUMENTS.html" target="_blank" style="color: #a0aac0; text-decoration: none;">🎯 Demo Interactiva</a></li>
+                    <li style="margin-bottom: 8px;"><a href="classified-document.html" target="_blank" style="color: #a0aac0; text-decoration: none;">📋 Documento de Ejemplo</a></li>
+                    <li style="margin-bottom: 8px;"><a href="DESIGN_SYSTEM_SHOWCASE.html" target="_blank" style="color: #a0aac0; text-decoration: none;">🎨 Sistema de Diseño</a></li>
+                    <li style="margin-bottom: 8px;"><a href="INTEGRATION_OVERVIEW.html" target="_blank" style="color: #a0aac0; text-decoration: none;">✅ Integración Completa</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: #4a90e2; margin-bottom: 15px;">📖 Documentación</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 8px;"><a href="WORKFLOW_GUIDE.html" target="_blank" style="color: #a0aac0; text-decoration: none;">📊 Guía de Flujo de Trabajo</a></li>
+                    <li style="margin-bottom: 8px;"><a href="REDACTION_GUIDE.html" target="_blank" style="color: #a0aac0; text-decoration: none;">⬛ Guía de Redacción</a></li>
+                    <li style="margin-bottom: 8px;"><a href="INTEGRATION_DOCS.html" target="_blank" style="color: #a0aac0; text-decoration: none;">🔧 Documentación de Integración</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: #4a90e2; margin-bottom: 15px;">ℹ️ Información del Sistema</h4>
+                <p style="color: #a0aac0; margin-bottom: 8px;">Plataforma de Inteligencia ARCHIVE-X</p>
+                <p style="color: #a0aac0; margin-bottom: 8px;">Proyecto Educativo - Contenido Ficticio</p>
+                <p style="color: #a0aac0; margin-bottom: 8px;">© 2026 - Solo para Uso Escolar</p>
+            </div>
+        </div>
+    </footer>
+
+    <footer style="background: #0a0e14; color: #7a8499; text-align: center; padding: 20px; font-size: 0.9em;">
+        <p>Esta interfaz de sistema es parte de una simulación educativa. El acceso no autorizado está prohibido.</p>
+    </footer>
+
+    <script>
+        // Add hover effect demonstration
+        document.querySelectorAll('.card-demo, .grid-item').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                console.log('Card hover detected');
+            });
+        });
+    </script>
+</body>
+</html>

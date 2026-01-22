@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo de Documentos Interactivos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #0f1419;
+            color: #e8eef7;
+        }
+        
+        h1 {
+            color: #4a90e2;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #a0aac0;
+            margin-bottom: 40px;
+        }
+        
+        .feature-section {
+            background: #1a1f2e;
+            border: 1px solid rgba(74, 144, 226, 0.3);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .feature-section h2 {
+            color: #4a90e2;
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(100, 120, 150, 0.15);
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-list li::before {
+            content: "✓ ";
+            color: #4a9d6f;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .demo-button {
+            display: inline-block;
+            background: #4a90e2;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.2s;
+        }
+        
+        .demo-button:hover {
+            background: #6ba4ed;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.4);
+        }
+        
+        .code-block {
+            background: #0a0e14;
+            border-left: 3px solid #4a90e2;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        
+        .code-block code {
+            color: #6ba4ed;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        .workflow-step {
+            background: rgba(74, 144, 226, 0.1);
+            border-left: 4px solid #4a90e2;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .workflow-step strong {
+            color: #4a90e2;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔐 Registros de Inteligencia Interactivos</h1>
+    <p class="subtitle">Sistema de Documentos Mejorado para el Panel de Inteligencia FIO</p>
+    
+    <div class="feature-section">
+        <h2>✨ Nuevas Funciones Implementadas</h2>
+        <ul class="feature-list">
+            <li><strong>Tarjetas de Documentos Interactivas</strong> - Haz clic en cualquier documento para ver detalles</li>
+            <li><strong>Modal de Resumen</strong> - Vista rápida con niveles de clasificación y resúmenes ejecutivos</li>
+            <li><strong>Visor de Documentos Completo</strong> - Estilo auténtico de informes gubernamentales desclasificados</li>
+            <li><strong>Animaciones Suaves</strong> - Transiciones profesionales entre estados</li>
+            <li><strong>Sistema de Dos Botones</strong> - Opciones "Ver Resumen" y "Abrir Documento"</li>
+            <li><strong>Diseño Responsivo</strong> - Funciona en escritorio, tablet y dispositivos móviles</li>
+        </ul>
+        
+        <a href="index.html" class="demo-button">🚀 Abrir Demo del Panel</a>
+    </div>
+    
+    <div class="feature-section">
+        <h2>📋 Cómo Funciona</h2>
+        
+        <div class="workflow-step">
+            <strong>Paso 1:</strong> Navega a la pestaña "Documentos" en el panel
+        </div>
+        
+        <div class="workflow-step">
+            <strong>Paso 2:</strong> Haz clic en cualquier tarjeta de documento en la lista de archivos
+        </div>
+        
+        <div class="workflow-step">
+            <strong>Paso 3:</strong> Revisa el modal de resumen con nivel de clasificación, estado, fecha y resumen ejecutivo
+        </div>
+        
+        <div class="workflow-step">
+            <strong>Paso 4:</strong> Elige una acción:
+            <ul style="margin-top: 10px;">
+                <li><strong>Ver Resumen</strong> - Permanecer en vista de resumen</li>
+                <li><strong>Abrir Documento</strong> - Ver informe desclasificado completo</li>
+            </ul>
+        </div>
+        
+        <div class="workflow-step">
+            <strong>Paso 5:</strong> En el visor de documentos, lee el informe completo con estilo gubernamental auténtico
+        </div>
+        
+        <div class="workflow-step">
+            <strong>Paso 6:</strong> Cierra usando el botón ✕ o haz clic fuera del modal
+        </div>
+    </div>
+    
+    <div class="feature-section">
+        <h2>🎨 Características del Visor de Documentos</h2>
+        <ul class="feature-list">
+            <li>Fondo de papel envejecido para aspecto auténtico de documento desclasificado</li>
+            <li>Encabezado oficial FIO con números de expediente</li>
+            <li>Banners de clasificación en negrita (ALTO SECRETO / CONFIDENCIAL / RESTRINGIDO)</li>
+            <li>Marca de agua "CLASIFICADO" en toda la página</li>
+            <li>Fuente Courier estilo máquina de escribir</li>
+            <li>Resumen ejecutivo, análisis detallado y secciones de recomendaciones</li>
+            <li>Avisos de redacción y advertencias de fecha de destrucción</li>
+            <li>Experiencia de lectura inmersiva en pantalla completa</li>
+        </ul>
+    </div>
+    
+    <div class="feature-section">
+        <h2>🎯 Niveles de Clasificación</h2>
+        
+        <div class="code-block">
+            <code>
+                <div style="color: #c0544a;">■ NIVEL 1 - ALTO SECRETO (Rojo)</div>
+                <div style="color: #d4945e;">■ NIVEL 2 - CONFIDENCIAL (Naranja)</div>
+                <div style="color: #d4a76a;">■ NIVEL 3 - RESTRINGIDO (Amarillo)</div>
+            </code>
+        </div>
+        
+        <p style="margin-top: 15px;">Cada documento está codificado por colores según su nivel de clasificación, proporcionando reconocimiento visual instantáneo de sensibilidad.</p>
+    </div>
+    
+    <div class="feature-section">
+        <h2>🔧 Implementación Técnica</h2>
+        <ul class="feature-list">
+            <li><strong>Componente:</strong> DocumentsComponent.js (mejorado)</li>
+            <li><strong>Estilos:</strong> Nuevas secciones CSS para modales y visor de documentos</li>
+            <li><strong>Animaciones:</strong> Transiciones CSS con easing cubic-bezier</li>
+            <li><strong>Estructura:</strong> Sistema modal de dos niveles (resumen → vista completa)</li>
+            <li><strong>Manejo de Eventos:</strong> Eventos de clic con limpieza adecuada</li>
+            <li><strong>Rendimiento:</strong> Animaciones aceleradas por GPU, generación de contenido bajo demanda</li>
+        </ul>
+    </div>
+    
+    <div class="feature-section">
+        <h2>📚 Documentación</h2>
+        <p>Para detalles completos de implementación, opciones de personalización y especificaciones técnicas, consulta:</p>
+        <div class="code-block">
+            <code>INTERACTIVE_DOCUMENTS_GUIDE.md</code>
+        </div>
+        <p style="margin-top: 15px;">Esta guía completa incluye:</p>
+        <ul class="feature-list">
+            <li>Documentación completa de funciones</li>
+            <li>Transiciones y animaciones de UI</li>
+            <li>Explicación de la estructura del código</li>
+            <li>Opciones de personalización</li>
+            <li>Diagramas de flujo de usuario</li>
+            <li>Guía de solución de problemas</li>
+        </ul>
+    </div>
+    
+    <div class="feature-section">
+        <h2>🚀 Comenzar</h2>
+        <p>¿Listo para experimentar los nuevos registros de inteligencia interactivos?</p>
+        <ol style="margin-left: 20px; margin-top: 15px;">
+            <li>Abre <strong>index.html</strong> en tu navegador</li>
+            <li>Navega a la pestaña <strong>Documentos</strong></li>
+            <li>Haz clic en cualquier tarjeta de documento para ver el modal de resumen</li>
+            <li>Haz clic en <strong>"Abrir Documento"</strong> para ver el informe desclasificado completo</li>
+        </ol>
+        
+        <a href="index.html" class="demo-button" style="margin-top: 30px;">🎯 Iniciar Panel</a>
+    </div>
+    
+    <!-- Pie de Página Mejorado con Enlaces Rápidos -->
+    <footer class="dashboard-footer" style="margin-top: 60px; padding: 40px 20px; background: #1a1f2e; border-top: 1px solid rgba(74, 144, 226, 0.3);">
+        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+            <div>
+                <h4 style="color: #4a90e2; margin-bottom: 15px;">📚 Acceso Rápido</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 8px;"><a href="index.html" style="color: #a0aac0; text-decoration: none;">🏠 Panel Principal</a></li>
+                    <li style="margin-bottom: 8px;"><a href="QUICK_START_DOCUMENTS.html" target="_blank" style="color: #a0aac0; text-decoration: none;">📄 Inicio Rápido Documentos</a></li>
+                    <li style="margin-bottom: 8px;"><a href="DEMO_INTERACTIVE_DOCUMENTS.html" target="_blank" style="color: #a0aac0; text-decoration: none;">🎯 Demo Interactiva</a></li>
+                    <li style="margin-bottom: 8px;"><a href="classified-document.html" target="_blank" style="color: #a0aac0; text-decoration: none;">📋 Documento de Ejemplo</a></li>
+                    <li style="margin-bottom: 8px;"><a href="DESIGN_SYSTEM_SHOWCASE.html" target="_blank" style="color: #a0aac0; text-decoration: none;">🎨 Sistema de Diseño</a></li>
+                    <li style="margin-bottom: 8px;"><a href="INTEGRATION_OVERVIEW.html" target="_blank" style="color: #a0aac0; text-decoration: none;">✅ Integración Completa</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: #4a90e2; margin-bottom: 15px;">📖 Documentación</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 8px;"><a href="WORKFLOW_GUIDE.html" target="_blank" style="color: #a0aac0; text-decoration: none;">📊 Guía de Flujo de Trabajo</a></li>
+                    <li style="margin-bottom: 8px;"><a href="REDACTION_GUIDE.html" target="_blank" style="color: #a0aac0; text-decoration: none;">⬛ Guía de Redacción</a></li>
+                    <li style="margin-bottom: 8px;"><a href="INTEGRATION_DOCS.html" target="_blank" style="color: #a0aac0; text-decoration: none;">🔧 Documentación de Integración</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: #4a90e2; margin-bottom: 15px;">ℹ️ Información del Sistema</h4>
+                <p style="color: #a0aac0; margin-bottom: 8px;">Plataforma de Inteligencia ARCHIVE-X</p>
+                <p style="color: #a0aac0; margin-bottom: 8px;">Proyecto Educativo - Contenido Ficticio</p>
+                <p style="color: #a0aac0; margin-bottom: 8px;">© 2026 - Solo para Uso Escolar</p>
+            </div>
+        </div>
+    </footer>
+
+    <footer style="background: #0a0e14; color: #7a8499; text-align: center; padding: 20px; font-size: 0.9em;">
+        <p>Esta interfaz de sistema es parte de una simulación educativa. El acceso no autorizado está prohibido.</p>
+    </footer>
+</body>
+</html>

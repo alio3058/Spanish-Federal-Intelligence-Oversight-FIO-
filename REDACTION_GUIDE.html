@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Redacción - ARCHIVE-X</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: #0f1419;
+            color: #e8eef7;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+        
+        .guide-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .guide-header {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, #0a0e14 0%, #1a1f2e 100%);
+            border: 2px solid #4a90e2;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        
+        .guide-header h1 {
+            color: #4a90e2;
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+        }
+        
+        .guide-header p {
+            color: #a0aac0;
+            font-size: 1.1em;
+            margin: 0;
+        }
+        
+        .section {
+            background: #1a1f2e;
+            border: 1px solid rgba(74, 144, 226, 0.3);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .section h2 {
+            color: #4a90e2;
+            font-size: 1.8em;
+            margin-top: 0;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(74, 144, 226, 0.3);
+        }
+        
+        .section h3 {
+            color: #6ba4ed;
+            font-size: 1.3em;
+            margin-top: 25px;
+        }
+        
+        .redacted {
+            background-color: #000000;
+            color: #000000;
+            padding: 2px 8px;
+            border-radius: 2px;
+            user-select: none;
+        }
+        
+        .redacted-block {
+            background-color: #000000;
+            color: #000000;
+            padding: 2px 12px;
+            display: inline-block;
+            min-width: 120px;
+            border-radius: 2px;
+        }
+        
+        .redacted-long {
+            background-color: #000000;
+            color: #000000;
+            padding: 2px 16px;
+            display: inline-block;
+            min-width: 200px;
+            border-radius: 2px;
+        }
+        
+        .example-box {
+            background: #0a0e14;
+            border-left: 4px solid #4a90e2;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .code-block {
+            background: #0a0e14;
+            padding: 20px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            border: 1px solid #4a90e2;
+            margin: 15px 0;
+        }
+        
+        .code-block code {
+            color: #6ba4ed;
+        }
+        
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .method-card {
+            background: #0a0e14;
+            border: 1px solid rgba(74, 144, 226, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .method-card h4 {
+            color: #4a90e2;
+            margin-top: 0;
+        }
+        
+        .use-case {
+            background: rgba(74, 144, 226, 0.1);
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-style: italic;
+            color: #a0aac0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        table th,
+        table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid rgba(74, 144, 226, 0.3);
+        }
+        
+        table th {
+            background: #0a0e14;
+            color: #4a90e2;
+            font-weight: bold;
+        }
+        
+        table td {
+            background: #1a1f2e;
+        }
+        
+        .do-dont {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .do-box {
+            background: rgba(39, 174, 96, 0.1);
+            border: 2px solid #27ae60;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .do-box h3 {
+            color: #27ae60;
+            margin-top: 0;
+        }
+        
+        .dont-box {
+            background: rgba(231, 76, 60, 0.1);
+            border: 2px solid #e74c3c;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .dont-box h3 {
+            color: #e74c3c;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="guide-container">
+        <div class="guide-header">
+            <h1>⬛ GUÍA DE TÉCNICAS DE ESTILO DE REDACCIÓN</h1>
+            <p>Guía completa para crear texto redactado de aspecto auténtico para documentos clasificados</p>
+        </div>
+
+        <!-- Estilos Básicos de Redacción -->
+        <div class="section">
+            <h2>📋 Estilos Básicos de Redacción</h2>
+            
+            <div class="method-grid">
+                <div class="method-card">
+                    <h4>Método 1: Caja Negra (Más Común)</h4>
+                    <div class="example-box">
+                        <p>Nombre del agente: <span class="redacted">████████</span></p>
+                    </div>
+                    <div class="code-block">
+<code>&lt;span class="redacted"&gt;████████&lt;/span&gt;</code>
+                    </div>
+                    <div class="use-case">
+                        <strong>Usar para:</strong> Nombres, fechas, frases cortas
+                    </div>
+                </div>
+
+                <div class="method-card">
+                    <h4>Método 2: Redacción en Bloque</h4>
+                    <div class="example-box">
+                        <p>Ubicación: <span class="redacted-block">████████████████</span></p>
+                    </div>
+                    <div class="code-block">
+<code>&lt;span class="redacted-block"&gt;████████████████&lt;/span&gt;</code>
+                    </div>
+                    <div class="use-case">
+                        <strong>Usar para:</strong> Frases largas, ubicaciones, clasificaciones
+                    </div>
+                </div>
+
+                <div class="method-card">
+                    <h4>Método 3: Redacción Larga</h4>
+                    <div class="example-box">
+                        <p>Detalles: <span class="redacted-long">████████████████████████████</span></p>
+                    </div>
+                    <div class="code-block">
+<code>&lt;span class="redacted-long"&gt;████████████████████████████&lt;/span&gt;</code>
+                    </div>
+                    <div class="use-case">
+                        <strong>Usar para:</strong> Oraciones completas, direcciones completas
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Técnicas Avanzadas -->
+        <div class="section">
+            <h2>🔧 Técnicas Avanzadas</h2>
+            
+            <h3>Redacción Parcial</h3>
+            <div class="example-box">
+                <p>El nombre del agente es Jo<span class="redacted">██</span> Sm<span class="redacted">███</span></p>
+            </div>
+            <p style="color: #a0aac0;"><em>Efecto: Crea la impresión de información parcialmente visible</em></p>
+
+            <h3>Redacción de Ancho Variable</h3>
+            <div class="code-block">
+<code>.redacted-xs { min-width: 30px; }
+.redacted-sm { min-width: 60px; }
+.redacted-md { min-width: 100px; }
+.redacted-lg { min-width: 150px; }
+.redacted-xl { min-width: 200px; }</code>
+            </div>
+            <div class="example-box">
+                <p>El sujeto <span class="redacted" style="min-width: 100px; display: inline-block;">████████</span> fue localizado en <span class="redacted" style="min-width: 150px; display: inline-block;">████████████</span></p>
+            </div>
+
+            <h3>Redacción de Párrafo Completo</h3>
+            <div style="background: #0a0e14; border-left: 4px solid #000; padding: 15px; margin: 15px 0; border-radius: 4px;">
+                <p style="background: #000; color: #000; padding: 15px; line-height: 1.8; margin: 0; user-select: none;">████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████</p>
+            </div>
+            <div class="use-case">
+                <strong>Usar para:</strong> Secciones sensibles, párrafos clasificados
+            </div>
+        </div>
+
+        <!-- Métodos CSS -->
+        <div class="section">
+            <h2>🎨 Implementación CSS</h2>
+            
+            <h3>CSS Estándar de Redacción</h3>
+            <div class="code-block">
+<code>.redacted {
+    background-color: #000000;
+    color: #000000;
+    padding: 2px 8px;
+    border-radius: 2px;
+    user-select: none;
+}
+
+.redacted-block {
+    background-color: #000000;
+    color: #000000;
+    padding: 2px 12px;
+    display: inline-block;
+    min-width: 120px;
+    border-radius: 2px;
+}
+
+.redacted-long {
+    background-color: #000000;
+    color: #000000;
+    padding: 2px 16px;
+    display: inline-block;
+    min-width: 200px;
+    border-radius: 2px;
+}</code>
+            </div>
+
+            <h3>Estilos Específicos de Impresión</h3>
+            <div class="code-block">
+<code>@media print {
+    .redacted,
+    .redacted-block,
+    .redacted-long {
+        background-color: #000 !important;
+        color: #000 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}</code>
+            </div>
+        </div>
+
+        <!-- Complete Example -->
+        <div class="section">
+            <h2>📄 Complete Document Example</h2>
+            
+            <div style="background: #fff; color: #000; padding: 30px; border-radius: 8px; font-family: 'Courier New', monospace;">
+                <div style="background: #c0392b; color: #fff; padding: 15px; text-align: center; font-weight: bold; margin-bottom: 20px;">
+                    TOP SECRET // SPECIAL ACCESS REQUIRED
+                </div>
+                
+                <h3 style="text-align: center; margin: 20px 0;">INTELLIGENCE BRIEF</h3>
+                
+                <p>
+                    The operation took place on 
+                    <span class="redacted">██/██/████</span> at location
+                    <span class="redacted-block">████████████████</span>.
+                    Agent <span class="redacted">████████</span> reported that
+                    <span class="redacted-long">████████████████████████████</span>
+                    was successfully completed.
+                </p>
+                
+                <div style="background: #f0f0f0; border-left: 4px solid #000; padding: 15px; margin: 20px 0;">
+                    <p style="background: #000; color: #000; padding: 15px; line-height: 1.8; margin: 0;">████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████</p>
+                </div>
+                
+                <p>
+                    Más detalles disponibles en el informe 
+                    <span class="redacted">AS-████-███</span>.
+                </p>
+                
+                <div style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #000;">
+                    <p style="margin: 5px 0;">PREPARADO POR: <span class="redacted-block">████████████████</span></p>
+                    <p style="margin: 5px 0;">REVISADO POR: <span class="redacted-block">████████████████</span></p>
+                    <p style="margin: 5px 0;">DESCLASIFICAR EN: <span class="redacted">████████████</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mejores Prácticas -->
+        <div class="section">
+            <h2>✅ Mejores Prácticas</h2>
+            
+            <div class="do-dont">
+                <div class="do-box">
+                    <h3>✅ HACER:</h3>
+                    <ul>
+                        <li>Usar estilo consistente en todo el documento</li>
+                        <li>Coincidir aproximadamente la longitud de redacción con el texto original</li>
+                        <li>Prevenir selección de texto con <code>user-select: none</code></li>
+                        <li>Usar HTML semántico con clases apropiadas</li>
+                        <li>Probar la apariencia de impresión</li>
+                        <li>Considerar la accesibilidad</li>
+                        <li>Mantener las redacciones realistas</li>
+                    </ul>
+                </div>
+                
+                <div class="dont-box">
+                    <h3>❌ NO HACER:</h3>
+                    <ul>
+                        <li>Hacer redacciones muy pequeñas o muy grandes</li>
+                        <li>Usar datos sensibles reales en ejemplos</li>
+                        <li>Permitir revelar redacciones en producción</li>
+                        <li>Olvidar la responsividad móvil</li>
+                        <li>Pasar por alto las hojas de estilo de impresión</li>
+                        <li>Usar estilos inconsistentes</li>
+                        <li>Crear patrones poco realistas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Referencia Rápida -->
+        <div class="section">
+            <h2>📊 Tabla de Referencia Rápida</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Estilo</th>
+                        <th>Clase HTML</th>
+                        <th>Mejor Para</th>
+                        <th>Ancho</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Básico</td>
+                        <td><code>.redacted</code></td>
+                        <td>Nombres, texto corto</td>
+                        <td>Auto</td>
+                    </tr>
+                    <tr>
+                        <td>Bloque</td>
+                        <td><code>.redacted-block</code></td>
+                        <td>Frases, ubicaciones</td>
+                        <td>120px+</td>
+                    </tr>
+                    <tr>
+                        <td>Largo</td>
+                        <td><code>.redacted-long</code></td>
+                        <td>Oraciones</td>
+                        <td>200px+</td>
+                    </tr>
+                    <tr>
+                        <td>Párrafo</td>
+                        <td><code>.fully-redacted</code></td>
+                        <td>Secciones</td>
+                        <td>100%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Ejemplos de Uso -->
+        <div class="section">
+            <h2>💡 Ejemplos de Uso Común</h2>
+            
+            <h3>Nombres y Personal</h3>
+            <div class="example-box">
+                <p>El agente <span class="redacted">████████</span> y el oficial <span class="redacted">██████████</span> condujeron la operación.</p>
+            </div>
+
+            <h3>Fechas y Horas</h3>
+            <div class="example-box">
+                <p>La operación comenzó el <span class="redacted">██/██/████</span> a las <span class="redacted">████</span> horas.</p>
+            </div>
+
+            <h3>Ubicaciones</h3>
+            <div class="example-box">
+                <p>El objetivo fue observado en <span class="redacted-block">████████████████</span>, aproximadamente a <span class="redacted">███</span> millas de la frontera.</p>
+            </div>
+
+            <h3>IDs de Documentos</h3>
+            <div class="example-box">
+                <p>Referencia: <span class="redacted">AS-2026-FIO-█████</span></p>
+            </div>
+
+            <h3>Oraciones Completas</h3>
+            <div class="example-box">
+                <p>El análisis de inteligencia reveló que <span class="redacted-long">████████████████████████████████████████</span> y se requiere más investigación.</p>
+            </div>
+        </div>
+
+        <!-- Aviso Educativo -->
+        <div style="background: rgba(241, 196, 15, 0.1); border: 2px solid #f1c40f; border-radius: 8px; padding: 30px; margin-top: 40px; text-align: center;">
+            <h2 style="color: #f1c40f; margin-top: 0;">⚠️ Aviso Educativo</h2>
+            <p style="color: #e8eef7; font-size: 1.1em; margin: 0;">
+                <strong>Recuerda:</strong> Esta guía es solo para propósitos educativos y creativos. 
+                Todos los ejemplos son ficticios. Nunca uses técnicas de redacción para ocultar información sensible real de manera inapropiada.
+            </p>
+        </div>
+    </div>
+
+    <!-- Pie de Página Mejorado con Enlaces Rápidos -->
+    <footer class="dashboard-footer" style="margin-top: 60px; padding: 40px 20px; background: #1a1f2e; border-top: 1px solid rgba(74, 144, 226, 0.3);">
+        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+            <div>
+                <h4 style="color: #4a90e2; margin-bottom: 15px;">📚 Acceso Rápido</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 8px;"><a href="index.html" style="color: #a0aac0; text-decoration: none;">🏠 Panel Principal</a></li>
+                    <li style="margin-bottom: 8px;"><a href="QUICK_START_DOCUMENTS.html" target="_blank" style="color: #a0aac0; text-decoration: none;">📄 Inicio Rápido Documentos</a></li>
+                    <li style="margin-bottom: 8px;"><a href="DEMO_INTERACTIVE_DOCUMENTS.html" target="_blank" style="color: #a0aac0; text-decoration: none;">🎯 Demo Interactiva</a></li>
+                    <li style="margin-bottom: 8px;"><a href="classified-document.html" target="_blank" style="color: #a0aac0; text-decoration: none;">📋 Documento de Ejemplo</a></li>
+                    <li style="margin-bottom: 8px;"><a href="DESIGN_SYSTEM_SHOWCASE.html" target="_blank" style="color: #a0aac0; text-decoration: none;">🎨 Sistema de Diseño</a></li>
+                    <li style="margin-bottom: 8px;"><a href="INTEGRATION_OVERVIEW.html" target="_blank" style="color: #a0aac0; text-decoration: none;">✅ Integración Completa</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: #4a90e2; margin-bottom: 15px;">📖 Documentación</h4>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 8px;"><a href="WORKFLOW_GUIDE.html" style="color: #a0aac0; text-decoration: none;">📊 Guía de Flujo de Trabajo</a></li>
+                    <li style="margin-bottom: 8px;"><a href="REDACTION_GUIDE.html" style="color: #a0aac0; text-decoration: none;">⬛ Guía de Redacción</a></li>
+                    <li style="margin-bottom: 8px;"><a href="INTEGRATION_DOCS.html" style="color: #a0aac0; text-decoration: none;">🔧 Documentación de Integración</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="color: #4a90e2; margin-bottom: 15px;">ℹ️ Información del Sistema</h4>
+                <p style="color: #a0aac0; margin-bottom: 8px;">Plataforma de Inteligencia ARCHIVE-X</p>
+                <p style="color: #a0aac0; margin-bottom: 8px;">Proyecto Educativo - Contenido Ficticio</p>
+                <p style="color: #a0aac0; margin-bottom: 8px;">© 2026 - Solo para Uso Escolar</p>
+            </div>
+        </div>
+    </footer>
+
+    <footer style="background: #0a0e14; color: #7a8499; text-align: center; padding: 20px; font-size: 0.9em;">
+        <p>Esta interfaz de sistema es parte de una simulación educativa. El acceso no autorizado está prohibido.</p>
+    </footer>
+</body>
+</html>
